@@ -1,6 +1,6 @@
-package org.adaschool.tasksplanner;
+package org.adaschool.api;
 
-import org.adaschool.tasksplanner.controller.HealthController;
+import org.adaschool.api.controller.HealthController;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
