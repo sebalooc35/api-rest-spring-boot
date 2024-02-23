@@ -13,3 +13,4 @@ public interface UserService {
     void delete(UserEntity user);
 
 }
+

@@ -1,9 +1,12 @@
-package org.adaschool.api.security;
+package org.adaschool.api.security.jwt;
 
+
+import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.adaschool.api.exception.TokenExpiredException;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -21,7 +24,13 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        //TODO implementar este Metodo
+        final String authorizationHeader = request.getHeader("Authorization");
+        try {
+
+
+        } catch (ExpiredJwtException e) {
+            throw new TokenExpiredException();
+        }
         filterChain.doFilter(request, response);
     }
 

@@ -1,5 +1,6 @@
 package org.adaschool.api.controller.auth;
 
+
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

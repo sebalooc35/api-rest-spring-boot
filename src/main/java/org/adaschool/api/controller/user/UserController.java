@@ -1,6 +1,8 @@
 package org.adaschool.api.controller.user;
 
+
 import jakarta.annotation.security.RolesAllowed;
+import org.adaschool.api.data.user.RoleEnum;
 import org.adaschool.api.data.user.UserEntity;
 import org.adaschool.api.data.user.UserService;
 import org.springframework.http.ResponseEntity;
@@ -25,26 +27,31 @@ public class UserController {
     }
 
     public void loadSampleUsers() {
-        //TODO Implementar este metodo
+        if (passwordEncoder != null) {
+            UserEntity userEntity = new UserEntity("Ada Lovelace", "ada@mail.com", passwordEncoder.encode("passw0rd"));
+            userService.save(userEntity);
+            UserEntity adminUserEntity = new UserEntity("Ada Admin", "admin@mail.com", passwordEncoder.encode("passw0rd"));
+            adminUserEntity.addRole(RoleEnum.ADMIN);
+            userService.save(adminUserEntity);
+        }
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<UserEntity> getUserById(@PathVariable String id) {
-        //TODO Implementar este metodo
         return ResponseEntity.ok(null);
     }
 
     @PostMapping
     public ResponseEntity<UserEntity> createUser(@RequestBody UserDto userDto) {
-        //TODO Implementar este metodo
+
         return ResponseEntity.ok(null);
     }
 
     @RolesAllowed(ADMIN_ROLE)
     @DeleteMapping("/{id}")
     public ResponseEntity<Boolean> deleteUser(@PathVariable String id) {
-        //TODO Implementar este metodo
-        return ResponseEntity.ok(null);
+
+        return ResponseEntity.ok(false);
 
     }
 

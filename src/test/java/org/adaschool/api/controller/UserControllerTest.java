@@ -1,6 +1,5 @@
 package org.adaschool.api.controller;
 
-
 import org.adaschool.api.controller.user.UserController;
 import org.adaschool.api.controller.user.UserDto;
 import org.adaschool.api.data.user.UserEntity;
@@ -103,3 +102,4 @@ public class UserControllerTest {
         assertNotEquals(Boolean.TRUE, response.getBody());
     }
 }
+

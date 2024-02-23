@@ -19,7 +19,7 @@ public class UserEntity {
     private String name;
     private String email;
     private String passwordHash;
-    private List<UserRoleEnum> roles;
+    private List<RoleEnum> roles;
 
     public UserEntity() {
 
@@ -29,7 +29,7 @@ public class UserEntity {
         this.name = name;
         this.email = email;
         this.passwordHash = passwordHash;
-        roles = new ArrayList<>(Collections.singleton(UserRoleEnum.USER));
+        roles = new ArrayList<>(Collections.singleton(RoleEnum.USER));
     }
 
     public Long getId() {
@@ -48,11 +48,11 @@ public class UserEntity {
         return passwordHash;
     }
 
-    public List<UserRoleEnum> getRoles() {
+    public List<RoleEnum> getRoles() {
         return roles;
     }
 
-    public void addRole(UserRoleEnum role) {
+    public void addRole(RoleEnum role) {
         if (!roles.contains(role)) {
             roles.add(role);
         }
